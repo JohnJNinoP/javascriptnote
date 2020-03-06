@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Array.forEach()</h2>
+
+<p>Calls a function once for each array element.</p>
+
+<p id="demo"></p>
+<p id="demo1"></p>
+<p id="demo2"></p>
+<p id="demo3"></p>
+<p id="demo4"></p>
+<p id="demo5"></p>
+<p id="demo6"></p>
+
+<script>
+var txt = "";
+var numbers = [45, 4, 9, 16, 25];
+
+numbers.forEach(myFunction);
+document.getElementById("demo").innerHTML = txt;
+
+function myFunction(value) {
+  txt = txt + value + "<br>"; 
+}
+
+var numbers2 = numbers.map(myFunctionMap);
+function myFunctionMap(value, index, array) {
+  return value * 2;
+}
+document.getElementById("demo1").innerHTML = numbers2;
+
+var filter = numbers.filter(myFunctionFilter);
+function myFunctionFilter(value){
+    return value > 18
+}
+document.getElementById("demo2").innerHTML = filter;
+var reduce = numbers.reduce(myFunctionReduce);
+function myFunctionReduce(total,value){
+    return total + value
+}
+document.getElementById("demo3").innerHTML = reduce;
+
+var every = numbers.every(myFunctionEvery);
+function myFunctionEvery(value){
+    return value > 18
+}
+document.getElementById("demo4").innerHTML = every;
+
+var some = numbers.some(myFunctionSome);
+function myFunctionSome(value){
+    return value > 18
+}
+document.getElementById("demo5").innerHTML = some;
+
+var find = numbers.find(myFunctionFind);
+function myFunctionFind(value){
+    return value > 18
+}
+document.getElementById("demo6").innerHTML = find;
+</script>
+
+</body>
+</html>
